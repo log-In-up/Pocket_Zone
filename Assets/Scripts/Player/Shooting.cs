@@ -12,7 +12,8 @@ namespace Player
     public sealed class Shooting : MonoBehaviour
     {
         #region Editor fields
-        //[SerializeField] private Transform _shootingPoint = null;
+        [SerializeField] private Transform _shootingPoint = null;
+        [SerializeField] private AnimatorController _animatorController = null;
         #endregion
 
         #region Fields
@@ -43,6 +44,7 @@ namespace Player
         {
             if (!_canShoot) return;
 
+            _animatorController.CallShootTrigger();
             Debug.Log("Bang!");
         }
 

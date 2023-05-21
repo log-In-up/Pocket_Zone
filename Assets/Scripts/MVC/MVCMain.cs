@@ -1,3 +1,4 @@
+using Enemies;
 using GameData;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace MVC
     {
         #region Editor fields
         [SerializeField] private PlayerData _playerData = null;
+        [SerializeField] private EnemySpawner _enemySpawner = null;
+        [SerializeField] private Transform _entityHolder = null;
         #endregion
 
         #region Fields
@@ -41,7 +44,8 @@ namespace MVC
 
         private void Start()
         {
-            _playerlCreator.Initialization();
+            _playerlCreator.Initialization(_entityHolder);
+            _enemySpawner.Initialization(_entityHolder);
         }
         #endregion
     }

@@ -20,15 +20,16 @@ namespace MVC
         }
 
         #region Public Methods
-        internal void Initialization()
+        internal void Initialization(Transform entityHolder)
         {
             _playerGameObject = GameObject.FindGameObjectWithTag(Tags.PLAYER);
 
             if (_playerGameObject == null)
             {
-                Object playerPrefab = Resources.Load(ResourcePaths.PLAYER);
-                _playerGameObject = Object.Instantiate((GameObject)playerPrefab, Vector3.zero, Quaternion.identity);
+                _playerGameObject = Object.Instantiate(_playerData.Model, Vector3.zero, Quaternion.identity);
             }
+
+            _playerGameObject.transform.SetParent(entityHolder);
 
             _playerGameObject.GetSafeComponent(out Movement movement);
             movement.Init(_playerData, _playerModel.Joystick);

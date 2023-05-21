@@ -8,6 +8,11 @@ namespace Player
 #endif
     public sealed class Movement : MonoBehaviour
     {
+        #region Editor Fields
+        [SerializeField] private Transform _model = null;
+        [SerializeField] private AnimatorController _animatorController = null;
+        #endregion
+
         #region Fields
         private Joystick _joystick;
         private PlayerData _playerData;
@@ -38,6 +43,17 @@ namespace Player
             Vector3 moveDirection = new Vector3(_joystick.Horizontal, _joystick.Vertical, 0.0f).normalized;
 
             _moveAmount = Vector3.SmoothDamp(_moveAmount, moveDirection * _playerData.MovementSpeed, ref _currentVelocity, _playerData.SmoothTime);
+
+            if (_moveAmount.x >= 0.01f)
+            {
+                _model.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            }
+            else if (_moveAmount.x <= -0.01f)
+            {
+                _model.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            }
+
+            _animatorController.SetMovement(_moveAmount.magnitude);
         }
         #endregion
 

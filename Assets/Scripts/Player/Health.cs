@@ -1,7 +1,4 @@
 using GameData;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,14 +14,11 @@ namespace Player
         private Slider _healthSlider = null;
         #endregion
 
+        #region Properties
+        private bool IsDead => _currentHealth <= 0.0f;
+        #endregion
+
         #region Public Methods
-        public void ApplyDamage(float damage)
-        {
-            _currentHealth -= damage;
-
-            _healthSlider.value = _currentHealth / _maxHealth;
-        }
-
         internal void Init(PlayerData playerData, Slider healthBar)
         {
             _currentHealth = _maxHealth = playerData.MaxHealth;
@@ -32,6 +26,19 @@ namespace Player
 
             _healthSlider.value = _currentHealth / _maxHealth;
         }
+        #endregion
+
+        #region Interface Realization
+        public void ApplyDamage(float damage)
+        {
+            if (IsDead) return;
+
+            _currentHealth -= damage;
+
+            _healthSlider.value = _currentHealth / _maxHealth;
+        }
+
+        public bool CanBeDamaged() => !IsDead;
         #endregion
     }
 }
