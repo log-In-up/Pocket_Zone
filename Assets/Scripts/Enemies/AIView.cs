@@ -13,9 +13,11 @@ namespace Enemies
         [SerializeField] private AIDestinationSetter _destinationSetter = null;
         [SerializeField] private AIPath _aiPath = null;
         [SerializeField] private AIFighter _fighter = null;
+        [SerializeField] private Health _health = null;
         #endregion
 
         #region Fields
+        private LayerMask _playerLayer;
         private float _viewRadius;
         private GameObject _player;
         #endregion
@@ -23,6 +25,8 @@ namespace Enemies
         #region MonoBehaviour API
         private void Update()
         {
+            if (_health.IsDead) return;
+
             TrackingPerPlayer();
         }
         #endregion
@@ -43,7 +47,7 @@ namespace Enemies
             }
             else
             {
-                RaycastHit2D hit2D = Physics2D.CircleCast(transform.position, _viewRadius, Vector2.up, 0.01f, LayerMask.NameToLayer(Tags.PLAYER));
+                RaycastHit2D hit2D = Physics2D.CircleCast(transform.position, _viewRadius, Vector2.up, 0.01f, _playerLayer);
 
                 if (hit2D.collider != null)
                 {
@@ -62,7 +66,11 @@ namespace Enemies
         #endregion
 
         #region Public Methods
-        internal void Init(float viewRadius) => _viewRadius = viewRadius;
+        internal void Init(float viewRadius, LayerMask playerMask)
+        {
+            _viewRadius = viewRadius;
+            _playerLayer = playerMask;
+        }
         #endregion
     }
 }

@@ -5,6 +5,7 @@ namespace Constants
         public const string UNTAGGED = "Untagged",
             RESPAWN = "Respawn", FINISH = "Finish",
             EDITOR_ONLY = "EditorOnly", MAIN_CAMERA = "MainCamera",
-            PLAYER = "Player", GAME_CONTROLLER = "GameController";
+            PLAYER = "Player", GAME_CONTROLLER = "GameController",
+            ENEMY = "Enemy";
     }
 }

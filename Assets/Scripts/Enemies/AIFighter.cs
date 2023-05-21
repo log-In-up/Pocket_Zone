@@ -35,6 +35,7 @@ namespace Enemies
                 if (_player.TryGetComponent(out IDamaged damageable) && damageable.CanBeDamaged())
                 {
                     damageable.ApplyDamage(_damage);
+
                     _animator.CallAttackTrigger();
                     _currentDelay = _delayBetweenAttacks;
                 }

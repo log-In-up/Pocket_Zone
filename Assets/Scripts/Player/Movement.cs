@@ -11,6 +11,7 @@ namespace Player
         #region Editor Fields
         [SerializeField] private Transform _model = null;
         [SerializeField] private AnimatorController _animatorController = null;
+        [SerializeField] private Health _health = null;
         #endregion
 
         #region Fields
@@ -28,11 +29,15 @@ namespace Player
 
         private void Update()
         {
+            if (_health.IsDead) return;
+
             Move();
         }
 
         private void FixedUpdate()
         {
+            if(_health.IsDead) return;
+
             _rigidbody.MovePosition(_rigidbody.position + ((Vector2)transform.TransformDirection(_moveAmount) * Time.fixedDeltaTime));
         }
         #endregion

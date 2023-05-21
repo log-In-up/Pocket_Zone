@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5519391174531727881}
+  - component: {fileID: 7424040818944168060}
   - component: {fileID: 1658939162731458567}
   - component: {fileID: 593787778171267901}
   - component: {fileID: 73892662501272194}
@@ -16,9 +17,9 @@ GameObject:
   - component: {fileID: 6599224326019655179}
   - component: {fileID: 2721920656734032600}
   - component: {fileID: 4139443737708443583}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +41,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &7424040818944168060
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270215403387012933}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.18}
+  m_Size: {x: 0.5, y: 2}
+  m_Direction: 0
 --- !u!114 &1658939162731458567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSlider: {fileID: 3721691592947033679}
   _animator: {fileID: 6599224326019655179}
+  _destinationSetter: {fileID: 73892662501272194}
+  _aiPath: {fileID: 593787778171267901}
+  _fighter: {fileID: 4139443737708443583}
 --- !u!114 &6599224326019655179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +188,7 @@ MonoBehaviour:
   _destinationSetter: {fileID: 73892662501272194}
   _aiPath: {fileID: 593787778171267901}
   _fighter: {fileID: 4139443737708443583}
+  _health: {fileID: 8323864792318205}
 --- !u!114 &4139443737708443583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6270098661911840458}
   - component: {fileID: 6610750764433056900}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1429343888902871900}
   - component: {fileID: 7451205609006850653}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2341482814582440686}
   - component: {fileID: 145269392015063477}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6742458475043146388}
   - component: {fileID: 6108003154421594378}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Zombie_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +549,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6553321236251191630}
   - component: {fileID: 4408632675139699999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1482199864520946080}
   - component: {fileID: 1782782798853052019}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807977338972792500}
   - component: {fileID: 5946337072706936259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,6 +819,14 @@ PrefabInstance:
     - target: {fileID: 2714713637440293267, guid: 0a9b7d80d839d224b9fbf6944120adde, type: 3}
       propertyPath: m_Name
       value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714713637440293267, guid: 0a9b7d80d839d224b9fbf6944120adde, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953774406166603787, guid: 0a9b7d80d839d224b9fbf6944120adde, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a9b7d80d839d224b9fbf6944120adde, type: 3}

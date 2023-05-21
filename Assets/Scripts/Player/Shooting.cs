@@ -1,7 +1,5 @@
+using Constants;
 using GameData;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player
@@ -12,29 +10,56 @@ namespace Player
     public sealed class Shooting : MonoBehaviour
     {
         #region Editor fields
-        [SerializeField] private Transform _shootingPoint = null;
         [SerializeField] private AnimatorController _animatorController = null;
         #endregion
 
         #region Fields
-        private bool _canShoot;
-        private float _shootingDelay;
-        private PlayerData _playerData = null;
+        private LayerMask _enemyLayer;
+        private float _currentShootingDelay, _delayBetweenAttacks, _shootingRadius;
+        private float _damage;
+        private GameObject _target;
         #endregion
 
         #region MonoBehaviour API
         private void Update()
         {
-            if (_canShoot) return;
+            ShotTimer();
 
-            if(_shootingDelay > 0)
+            TrackingPerEnemy();
+        }
+        #endregion
+
+        #region Methods
+        private void ShotTimer()
+        {
+            if (_currentShootingDelay > 0)
             {
-                _shootingDelay -= Time.deltaTime;
+                _currentShootingDelay -= Time.deltaTime;
+            }
+        }
+
+        private void TrackingPerEnemy()
+        {
+            RaycastHit2D[] raycastHit2D = Physics2D.CircleCastAll(transform.position, _shootingRadius, Vector2.up, 0.01f, _enemyLayer);
+
+            if (raycastHit2D.Length > 0)
+            {
+                float distance = float.PositiveInfinity;
+
+                foreach (RaycastHit2D hit in raycastHit2D)
+                {
+                    if (hit.collider.TryGetComponent(out IDamaged damageable) && damageable.CanBeDamaged())
+                    {
+                        if (Vector2.Distance(transform.position, hit.collider.transform.position) < distance)
+                        {
+                            _target = hit.collider.gameObject;
+                        }
+                    }
+                }
             }
             else
             {
-                _shootingDelay = _playerData.DelayBetweenShots;
-                _canShoot = true;
+                _target = null;
             }
         }
         #endregion
@@ -42,15 +67,26 @@ namespace Player
         #region Public Methods
         internal void MakeShot()
         {
-            if (!_canShoot) return;
+            if (_currentShootingDelay > 0) return;
 
             _animatorController.CallShootTrigger();
-            Debug.Log("Bang!");
+
+            if (_target != null && _target.TryGetComponent(out IDamaged damageable))
+            {
+                damageable.ApplyDamage(_damage);
+            }
+
+            _currentShootingDelay = _delayBetweenAttacks;
         }
 
         internal void Init(PlayerData playerData)
         {
-            _playerData = playerData;
+            _shootingRadius = playerData.ShootingRadius;
+            _delayBetweenAttacks = playerData.DelayBetweenShots;
+            _damage = playerData.Damage;
+            _enemyLayer = playerData.WhoIsEnemy;
+
+            _currentShootingDelay = 0.0f;
         }
         #endregion
     }

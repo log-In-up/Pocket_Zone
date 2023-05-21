@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9133758847409991644}
   - component: {fileID: 377588618998170427}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flesh_Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 572904047923471952}
   - component: {fileID: 8232617588674947061}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flesh_Front_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4894823785607717301}
   - component: {fileID: 1098386627674376813}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3347437159910969705}
   - component: {fileID: 5683539013781215377}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flesh_Hind_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,6 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6391080267862032615}
+  - component: {fileID: 5400915335759521184}
   - component: {fileID: 3153748759234406776}
   - component: {fileID: 1282265786487464871}
   - component: {fileID: 4829003427932119798}
@@ -324,9 +325,9 @@ GameObject:
   - component: {fileID: 3373308393161728026}
   - component: {fileID: 7624333923790587665}
   - component: {fileID: 6226199214629091689}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flesh
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -348,6 +349,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5400915335759521184
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185808425044707777}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.08}
+  serializedVersion: 2
+  m_Radius: 0.75
 --- !u!114 &3153748759234406776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +463,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSlider: {fileID: 6395504563678687006}
   _animator: {fileID: 3373308393161728026}
+  _destinationSetter: {fileID: 4829003427932119798}
+  _aiPath: {fileID: 1282265786487464871}
+  _fighter: {fileID: 6226199214629091689}
 --- !u!114 &3373308393161728026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +496,7 @@ MonoBehaviour:
   _destinationSetter: {fileID: 4829003427932119798}
   _aiPath: {fileID: 1282265786487464871}
   _fighter: {fileID: 6226199214629091689}
+  _health: {fileID: 2214805336584184262}
 --- !u!114 &6226199214629091689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,6 +564,14 @@ PrefabInstance:
     - target: {fileID: 2714713637440293267, guid: 0a9b7d80d839d224b9fbf6944120adde, type: 3}
       propertyPath: m_Name
       value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714713637440293267, guid: 0a9b7d80d839d224b9fbf6944120adde, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953774406166603787, guid: 0a9b7d80d839d224b9fbf6944120adde, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a9b7d80d839d224b9fbf6944120adde, type: 3}

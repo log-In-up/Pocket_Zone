@@ -9,13 +9,17 @@ namespace Player
 #endif
     public sealed class Health : MonoBehaviour, IDamaged
     {
+        #region Editor Fields
+        [SerializeField] private AnimatorController _animatorController = null;
+        #endregion
+
         #region Fields
         private float _currentHealth, _maxHealth;
         private Slider _healthSlider = null;
         #endregion
 
         #region Properties
-        private bool IsDead => _currentHealth <= 0.0f;
+        public bool IsDead => _currentHealth <= 0.0f;
         #endregion
 
         #region Public Methods
@@ -36,6 +40,11 @@ namespace Player
             _currentHealth -= damage;
 
             _healthSlider.value = _currentHealth / _maxHealth;
+
+            if (IsDead)
+            {
+                _animatorController.SetIsDeadState(true);
+            }
         }
 
         public bool CanBeDamaged() => !IsDead;

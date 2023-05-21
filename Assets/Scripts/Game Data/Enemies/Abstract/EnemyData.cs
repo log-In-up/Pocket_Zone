@@ -6,6 +6,7 @@ namespace GameData
     {
         [field:Header("Model")]
         [field: SerializeField] public GameObject Model { get; private set; }
+        [field: SerializeField] public LayerMask WhoIsEnemy { get; private set; }
 
         [field:Header("Characteristics")]
         [field: SerializeField, Min(0.0f)] public float MovementSpeed { get; private set; }

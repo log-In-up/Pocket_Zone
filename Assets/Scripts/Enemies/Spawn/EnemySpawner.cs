@@ -13,6 +13,7 @@ namespace Enemies
         #region Editor Fields
         [SerializeField] private List<Transform> _spawnPoints = null;
         [SerializeField] private EnemySpawnData _spawnData = null;
+        [SerializeField] private LayerMask _playerLayer;
         #endregion
 
         #region Public Methods
@@ -36,7 +37,7 @@ namespace Enemies
                 path.endReachedDistance = enemyData.AttackRadius;
 
                 enemy.GetSafeComponent(out AIView view);
-                view.Init(enemyData.ViewRadius);
+                view.Init(enemyData.ViewRadius, enemyData.WhoIsEnemy);
 
                 enemy.GetSafeComponent(out AIFighter fighter);
                 fighter.Init(enemyData.AttackRadius, enemyData.Damage, enemyData.DelayBetweenAttacks);

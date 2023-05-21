@@ -1,3 +1,4 @@
+using Pathfinding;
 using UnityEngine;
 using Utility;
 
@@ -11,6 +12,9 @@ namespace Enemies
         #region Editor Fields
         [SerializeField] private Slider2D _healthSlider = null;
         [SerializeField] private AnimatorController _animator = null;
+        [SerializeField] private AIDestinationSetter _destinationSetter = null;
+        [SerializeField] private AIPath _aiPath = null;
+        [SerializeField] private AIFighter _fighter = null;
         #endregion
 
         #region Fields
@@ -18,7 +22,7 @@ namespace Enemies
         #endregion
 
         #region Properties
-        private bool IsDead => _currentHealth <= 0.0f;
+        public bool IsDead => _currentHealth <= 0.0f;
         #endregion
 
         #region Public Methods
@@ -40,6 +44,10 @@ namespace Enemies
 
             if (IsDead)
             {
+                _destinationSetter.target = null;
+                _aiPath.isStopped = true;
+                _fighter.SetChaisingPlayer(null);
+
                 _animator.SetIsDeadState(true);
                 _healthSlider.gameObject.SetActive(false);
             }

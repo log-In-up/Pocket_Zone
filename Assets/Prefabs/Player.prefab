@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4157008297913623790}
   - component: {fileID: 5208713020908909760}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot_For_Clothing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9170943867252596703}
   - component: {fileID: 5340084176825166145}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7563807511379666735}
   - component: {fileID: 1717750789131727654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Elbow_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 9098263712043629753}
   - component: {fileID: 1479850737989510046}
   - component: {fileID: 2304230154473623726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3658463850921551622}
   - component: {fileID: 7354221321214174286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot_For_Clothing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8238852708060802692}
   - component: {fileID: 7479270437109326648}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot_For_Bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 4454459572435397087}
   - component: {fileID: 436934117592644280}
   - component: {fileID: 8213171732572742259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -629,6 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _model: {fileID: 8938789961520916888}
   _animatorController: {fileID: 8213171732572742259}
+  _health: {fileID: 436934117592644280}
 --- !u!114 &4454459572435397087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,7 +642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac8df0999e9af4a9eb78d2308b6284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootingPoint: {fileID: 7093953631434597312}
   _animatorController: {fileID: 8213171732572742259}
 --- !u!114 &436934117592644280
 MonoBehaviour:
@@ -655,6 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ca79963be5db9458b03e4a671a95c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animatorController: {fileID: 8213171732572742259}
 --- !u!114 &8213171732572742259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,7 +679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5701514362954967109}
   - component: {fileID: 6218932221137848480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5457967076619191446}
   - component: {fileID: 2458112996578612583}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2408645470816757040}
   - component: {fileID: 5603453543042328591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot_For_Clothing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -933,7 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8938789961520916888}
   - component: {fileID: 7735965545394156265}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4407335573523808628}
   - component: {fileID: 7889400185724922850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,7 +1073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7093953631434597312}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shot Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,7 +1105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8689287935097627437}
   - component: {fileID: 3567804240627701864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot_For_Clothing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1188,7 +1189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8818531505964846178}
   - component: {fileID: 8965398674336085325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot_For_Clothing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1272,7 +1273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3280324367601774260}
   - component: {fileID: 818907834470619143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot_For_Clothing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1356,7 +1357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7480299474958521836}
   - component: {fileID: 4592422722790900143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,7 +1442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6103685345166007693}
   - component: {fileID: 624339617507527040}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Elbow_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1526,7 +1527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1492858614747855672}
   - component: {fileID: 1298225927075753095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cinemachine Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,8 +1541,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6938554736058816932}
-  m_LocalRotation: {x: 0.00064258795, y: 0.00000019825345, z: -1.2739529e-10, w: 0.9999998}
-  m_LocalPosition: {x: -0.0000000039650665, y: 0.000012851757, z: -0.009999991}
+  m_LocalRotation: {x: 0.0006454879, y: 0.00000019825345, z: -1.279702e-10, w: 0.9999998}
+  m_LocalPosition: {x: -0.0000000039650665, y: 0.000012909756, z: -0.009999991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1597,7 +1598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5783880981905102299}
   - component: {fileID: 8226291052102736770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot_For_Clothing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1681,7 +1682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2739469088951095602}
   - component: {fileID: 1830353272444645889}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1766,7 +1767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6320599130175168625}
   - component: {fileID: 321166136912714726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1857,7 +1858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1988418206217196891}
   - component: {fileID: 7281635119483822120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot_For_Clothing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
