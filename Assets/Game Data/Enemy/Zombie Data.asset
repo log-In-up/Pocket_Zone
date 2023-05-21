@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Zombie Data
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 2270215403387012933, guid: f5b3b73bafd63a14b86cb76c040405d9, type: 3}
+  <WhoIsEnemy>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
   <MovementSpeed>k__BackingField: 3
   <MaxHealth>k__BackingField: 70
   <Damage>k__BackingField: 30

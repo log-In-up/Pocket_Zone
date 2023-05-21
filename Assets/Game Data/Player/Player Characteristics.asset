@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Player Characteristics
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 2760743240500482012, guid: f88362295087732439df8de1d8e501cb, type: 3}
+  <WhoIsEnemy>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 128
   <MovementSpeed>k__BackingField: 5
   <SmoothTime>k__BackingField: 0.15
   <MaxHealth>k__BackingField: 100
-  <ShootingRadius>k__BackingField: 10
+  <ShootingRadius>k__BackingField: 5
+  <Damage>k__BackingField: 20
   ShootsPerMinute: 100

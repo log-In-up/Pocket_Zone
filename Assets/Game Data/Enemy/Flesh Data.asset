@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Flesh Data
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 9185808425044707777, guid: 08e9b43e2bc1dc3428bc3285c6aecf4e, type: 3}
+  <WhoIsEnemy>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
   <MovementSpeed>k__BackingField: 4
   <MaxHealth>k__BackingField: 40
   <Damage>k__BackingField: 15
