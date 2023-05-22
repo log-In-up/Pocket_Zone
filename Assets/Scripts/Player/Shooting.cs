@@ -1,6 +1,6 @@
-using Constants;
 using GameData;
 using UnityEngine;
+using Weapons;
 
 namespace Player
 {
@@ -14,9 +14,10 @@ namespace Player
         #endregion
 
         #region Fields
+        private Weapon _currentWeapon = null;
         private LayerMask _enemyLayer;
-        private float _currentShootingDelay, _delayBetweenAttacks, _shootingRadius;
-        private float _damage;
+        private float _shootingRadius;
+
         private GameObject _target;
         #endregion
 
@@ -32,10 +33,9 @@ namespace Player
         #region Methods
         private void ShotTimer()
         {
-            if (_currentShootingDelay > 0)
-            {
-                _currentShootingDelay -= Time.deltaTime;
-            }
+            if (_currentWeapon == null) return;
+
+            _currentWeapon.UpdateTimer(Time.deltaTime);
         }
 
         private void TrackingPerEnemy()
@@ -67,26 +67,25 @@ namespace Player
         #region Public Methods
         internal void MakeShot()
         {
-            if (_currentShootingDelay > 0) return;
+            if (!_currentWeapon.CanShoot()) return;
 
             _animatorController.CallShootTrigger();
 
             if (_target != null && _target.TryGetComponent(out IDamaged damageable))
             {
-                damageable.ApplyDamage(_damage);
+                damageable.ApplyDamage(_currentWeapon.Damage);
             }
 
-            _currentShootingDelay = _delayBetweenAttacks;
+            _currentWeapon.SpendBullet();
+            _currentWeapon.ResetTimer();
         }
 
-        internal void Init(PlayerData playerData)
+        internal void Init(PlayerData playerData, Weapon weapon)
         {
             _shootingRadius = playerData.ShootingRadius;
-            _delayBetweenAttacks = playerData.DelayBetweenShots;
-            _damage = playerData.Damage;
             _enemyLayer = playerData.WhoIsEnemy;
 
-            _currentShootingDelay = 0.0f;
+            _currentWeapon = weapon;
         }
         #endregion
     }

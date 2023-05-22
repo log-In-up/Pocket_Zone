@@ -25,6 +25,11 @@ namespace Enemies
         public bool IsDead => _currentHealth <= 0.0f;
         #endregion
 
+        #region Events
+        public delegate void OnDeathHandler();
+        public event OnDeathHandler OnDeath;
+        #endregion
+
         #region Public Methods
         internal void Init(float maxHealth)
         {
@@ -50,6 +55,8 @@ namespace Enemies
 
                 _animator.SetIsDeadState(true);
                 _healthSlider.gameObject.SetActive(false);
+
+                OnDeath?.Invoke();
             }
         }
 

@@ -8,6 +8,7 @@ namespace UserInterface
         #region Editor fields
         [SerializeField] private Button _attack = null;
         [SerializeField] private Button _inventory = null;
+        [SerializeField] private Button _saveProgress = null;
         [SerializeField] private Slider _healthBar = null;
         [SerializeField] private Joystick _joystick = null;
         #endregion
@@ -29,6 +30,7 @@ namespace UserInterface
         {
             _attack.onClick.AddListener(OnClickAttack);
             _inventory.onClick.AddListener(OnClickInventory);
+            _saveProgress.onClick.AddListener(OnClickSaveProgress);
 
             base.Activate();
         }
@@ -37,6 +39,7 @@ namespace UserInterface
         {
             _attack.onClick.RemoveListener(OnClickAttack);
             _inventory.onClick.RemoveListener(OnClickInventory);
+            _saveProgress.onClick.RemoveListener(OnClickSaveProgress);
 
             base.Deactivate();
         }
@@ -46,6 +49,8 @@ namespace UserInterface
         private void OnClickAttack() => Mvc.PlayerController.MakeShot();
 
         private void OnClickInventory() => UICore.OpenScreen(UIScreen.Inventory);
+
+        private void OnClickSaveProgress() => Mvc.SaveGame();
         #endregion
     }
 }

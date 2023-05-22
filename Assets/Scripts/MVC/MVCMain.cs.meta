@@ -5,6 +5,10 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - _playerData: {fileID: 11400000, guid: 1a9d6b9e52ed43740ac10be21fd1015d, type: 2}
+  - _weaponData: {fileID: 11400000, guid: a419f25b1ef5a1b40b660744887f08bc, type: 2}
+  - _itemList: {fileID: 11400000, guid: ba020a05cfb94a949adbff1dc4f44cdb, type: 2}
+  - _enemySpawner: {instanceID: 0}
+  - _entityHolder: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

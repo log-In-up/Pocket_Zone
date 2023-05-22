@@ -2,6 +2,7 @@ using GameData;
 using Pathfinding;
 using System.Collections.Generic;
 using UnityEngine;
+using Inventory;
 
 namespace Enemies
 {
@@ -13,11 +14,10 @@ namespace Enemies
         #region Editor Fields
         [SerializeField] private List<Transform> _spawnPoints = null;
         [SerializeField] private EnemySpawnData _spawnData = null;
-        [SerializeField] private LayerMask _playerLayer;
         #endregion
 
         #region Public Methods
-        internal void Initialization(Transform entityHolder)
+        internal void Initialization(Transform entityHolder, ItemSpawner itemSpawner)
         {
             for (ulong index = 0; index < _spawnData.UnitsCountToSpawn; index++)
             {
@@ -41,6 +41,9 @@ namespace Enemies
 
                 enemy.GetSafeComponent(out AIFighter fighter);
                 fighter.Init(enemyData.AttackRadius, enemyData.Damage, enemyData.DelayBetweenAttacks);
+
+                enemy.GetSafeComponent(out ItemDropper dropper);
+                dropper.Init(itemSpawner);
             }
         }
         #endregion

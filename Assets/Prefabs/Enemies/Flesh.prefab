@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 3373308393161728026}
   - component: {fileID: 7624333923790587665}
   - component: {fileID: 6226199214629091689}
+  - component: {fileID: 4463533613050356368}
   m_Layer: 7
   m_Name: Flesh
   m_TagString: Enemy
@@ -359,7 +360,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.08}
@@ -510,6 +511,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3373308393161728026}
+--- !u!114 &4463533613050356368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185808425044707777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91be6269fc647ae41ade347ca2aa5103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 2214805336584184262}
 --- !u!1001 &631964590424777250
 PrefabInstance:
   m_ObjectHideFlags: 0
